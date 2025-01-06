@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "he" dir = "rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> קפה ומגולגלות</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class = "container">
+        <h1>Invitacion oficial a tomar cafe</h1>
+        <p> Hola Tiffany!!, espero que estes muy bien</p>
+        <p>  Te invito a leer cafe, es una vaina muy rara pero te va a gustar 😊</p>
+        <p>  Dia: Jueves, 09</p>
+        <p>  Hora: 18:30</p>
+        <p>  Lugar: Cafeteria Aesthetic de la Floresta (secreto)</p>
+        <img src = "coffee-and-cookies.jpg" alt="קפה ומגולגלות" class="image">
+        <button id="confirm-button">Acepto</button>
+        <p id="confirmation-message" style="display: none;"> Excelente, nos vemos el Jueves 😊😊</p>
+    </div>
+
+    <script>
+        document.getElementById("confirm-button").addEventListener("click", function(){
+            document.getElementById("confirmation-message").style.display = "block";
+        });
+        
+    </script>
+</body>
+</html>
