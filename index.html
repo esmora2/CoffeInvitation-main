@@ -7,19 +7,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class = "container">
+    <div class="container">
         <h1>Invitacion oficial a tomar cafe</h1>
-        <p> Hola Tiffany!!, espero que estes muy bien</p>
-        <p>  Te invito a leer cafe, es una vaina muy rara pero te va a gustar 😊</p>
-        <p>  Dia: Jueves, 09</p>
-        <p>  Hora: 18:30</p>
-        <p>  Lugar: Cafeteria Aesthetic de la Floresta (secreto)</p>
-        <img src = "coffee-and-cookies.jpg" alt="קפה ומגולגלות" class="image">
-        <button id="confirm-button">Acepto</button>
-        <p id="confirmation-message" style="display: none;"> Excelente, nos vemos el Jueves 😊😊</p>
+
+        <div class="card-scene">
+            <!-- control -->
+            <input type="checkbox" id="card-toggle" aria-hidden="true">
+            <label for="card-toggle" class="card-toggle-label" aria-hidden="false"></label>
+
+            <!-- card -->
+            <div class="card" aria-hidden="false">
+                <div class="card-front">
+                    <div class="front-inner">
+                        <h2>Invitación</h2>
+                        <p class="hint">Toca para abrir</p>
+                    </div>
+                </div>
+                <div class="card-spread">
+                    <div class="page page-left">
+                        <div class="page-inner">
+                            <p> Hola Tiffany!!, espero que estes muy bien</p>
+                            <p> Te invito a tomar cafe, es una vaina muy rara pero te va a gustar 😊</p>
+                            <p> Dia: Jueves, 09</p>
+                            <p> Hora: 18:30</p>
+                            <p> Lugar: Cafeteria Aesthetic de la Floresta (secreto)</p>
+                            <img src="coffee-and-cookies.jpg" alt="קפה ומגולגלות" class="image">
+                            <button id="confirm-button">Acepto</button>
+                            <p id="confirmation-message" style="display: none;"> Excelente, nos vemos el Jueves 😊😊</p>
+                        </div>
+                    </div>
+                    <div class="page page-right" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
+        const cardToggle = document.getElementById("card-toggle");
+        const cardScene = document.querySelector(".card-scene");
+
+        cardScene.classList.toggle("is-open", cardToggle.checked);
+        cardToggle.addEventListener("change", function () {
+            cardScene.classList.toggle("is-open", cardToggle.checked);
+        });
+
         document.getElementById("confirm-button").addEventListener("click", function(){
             document.getElementById("confirmation-message").style.display = "block";
         });
