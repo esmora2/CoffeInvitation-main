@@ -140,6 +140,10 @@ button:hover {
     border-radius: 14px;
 }
 
+.card-scene.is-open .card-toggle-label {
+    pointer-events: none;
+}
+
 /* When checked: rotate the front to reveal the back */
 #card-toggle:checked ~ .card .card-front {
     transform: rotateY(-180deg);

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Invitacion oficial a tomar cafe</h1>
+        <h1>Carta Sorpresa</h1>
 
         <div class="card-scene">
             <!-- control -->
@@ -26,14 +26,14 @@
                 <div class="card-spread">
                     <div class="page page-left">
                         <div class="page-inner">
-                            <p> Hola Tiffany!!, espero que estes muy bien</p>
+                            <p> Hola mi Tiffany preciosa!!, espero que estes muy bien</p>
                             <p> Te invito a tomar cafe, es una vaina muy rara pero te va a gustar 😊</p>
-                            <p> Dia: Jueves, 09</p>
+                            <p> Dia: Viernes, 09</p>
                             <p> Hora: 18:30</p>
                             <p> Lugar: Cafeteria Aesthetic de la Floresta (secreto)</p>
                             <img src="coffee-and-cookies.jpg" alt="קפה ומגולגלות" class="image">
                             <button id="confirm-button">Acepto</button>
-                            <p id="confirmation-message" style="display: none;"> Excelente, nos vemos el Jueves 😊😊</p>
+                            <p id="confirmation-message" style="display: none;"> Excelente mi amor, nos vemos el Viernes 😊😊</p>
                         </div>
                     </div>
                     <div class="page page-right" aria-hidden="true"></div>
@@ -45,10 +45,18 @@
     <script>
         const cardToggle = document.getElementById("card-toggle");
         const cardScene = document.querySelector(".card-scene");
+        const cardSpread = document.querySelector(".card-spread");
 
         cardScene.classList.toggle("is-open", cardToggle.checked);
         cardToggle.addEventListener("change", function () {
             cardScene.classList.toggle("is-open", cardToggle.checked);
+        });
+
+        cardSpread.addEventListener("click", function (event) {
+            if (!cardToggle.checked) return;
+            if (event.target.closest(".page-inner")) return;
+            cardToggle.checked = false;
+            cardToggle.dispatchEvent(new Event("change"));
         });
 
         document.getElementById("confirm-button").addEventListener("click", function(){
